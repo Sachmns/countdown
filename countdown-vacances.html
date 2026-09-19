@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>🏖️ Countdown Vacances — Zone B</title>
+<meta name="description" content="Compte à rebours des vacances scolaires — Académie de Nantes, Zone B. Jours restants, calendrier interactif, statistiques de l'année scolaire.">
+<meta name="theme-color" content="#7C3AED">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Vacances">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='100' y2='100'%3E%3Cstop offset='0' stop-color='%236366F1'/%3E%3Cstop offset='.5' stop-color='%23A855F7'/%3E%3Cstop offset='1' stop-color='%23EC4899'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='url(%23g)'/%3E%3Ctext x='50' y='68' font-size='54' text-anchor='middle'%3E%F0%9F%8F%96%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='100' y2='100'%3E%3Cstop offset='0' stop-color='%236366F1'/%3E%3Cstop offset='.5' stop-color='%23A855F7'/%3E%3Cstop offset='1' stop-color='%23EC4899'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='url(%23g)'/%3E%3Ctext x='50' y='68' font-size='54' text-anchor='middle'%3E%F0%9F%8F%96%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<link rel="manifest" href='data:application/manifest+json,%7B%22name%22%3A%22Countdown%20Vacances%22%2C%22short_name%22%3A%22Vacances%22%2C%22description%22%3A%22Compte%20%C3%A0%20rebours%20des%20vacances%20scolaires%20-%20Zone%20B%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23F5F3FB%22%2C%22theme_color%22%3A%22%237C3AED%22%2C%22orientation%22%3A%22portrait-primary%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%2C%253Csvg%2520xmlns%3D%2527http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%2527%2520viewBox%3D%25270%25200%2520100%2520100%2527%253E%253Cdefs%253E%253ClinearGradient%2520id%3D%2527g%2527%2520x1%3D%25270%2527%2520y1%3D%25270%2527%2520x2%3D%2527100%2527%2520y2%3D%2527100%2527%253E%253Cstop%2520offset%3D%25270%2527%2520stop-color%3D%2527%25236366F1%2527%2F%253E%253Cstop%2520offset%3D%2527.5%2527%2520stop-color%3D%2527%2523A855F7%2527%2F%253E%253Cstop%2520offset%3D%25271%2527%2520stop-color%3D%2527%2523EC4899%2527%2F%253E%253C%2FlinearGradient%253E%253C%2Fdefs%253E%253Crect%2520width%3D%2527100%2527%2520height%3D%2527100%2527%2520rx%3D%252724%2527%2520fill%3D%2527url(%2523g)%2527%2F%253E%253Ctext%2520x%3D%252750%2527%2520y%3D%252768%2527%2520font-size%3D%252754%2527%2520text-anchor%3D%2527middle%2527%253E%25F0%259F%258F%2596%25EF%25B8%258F%253C%2Ftext%253E%253C%2Fsvg%253E%22%2C%22sizes%22%3A%22any%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%2C%22purpose%22%3A%22any%22%7D%5D%7D'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ===================== DESIGN TOKENS ===================== */
+:root{
+  --ink:#241F3D;
+  --ink-soft:#514B6B;
+  --ink-faint:#6B6584;
+  --bg-base:#F6F3FC;
+  --glass-bg:rgba(255,255,255,.62);
+  --glass-bg-strong:rgba(255,255,255,.8);
+  --glass-border:rgba(255,255,255,.85);
+  --glass-shadow:0 8px 32px rgba(90,60,150,.12), 0 2px 8px rgba(90,60,150,.08);
+  --brand-1:#4F46E5;
+  --brand-2:#A855F7;
+  --brand-3:#EC4899;
+  --brand-grad:linear-gradient(135deg,var(--brand-1),var(--brand-2) 55%,var(--brand-3));
+  --radius-lg:28px;
+  --radius-md:20px;
+  --radius-sm:14px;
+  --toussaint-1:#B45309; --toussaint-2:#C2410C; --toussaint-3:#78350F;
+  --noel-1:#1E3A8A; --noel-2:#1D4ED8; --noel-3:#DC2626;
+  --hiver-1:#0C4A6E; --hiver-2:#075985; --hiver-3:#0E7490;
+  --printemps-1:#15803D; --printemps-2:#047857; --printemps-3:#BE185D;
+  --ete-1:#9A3412; --ete-2:#C2410C; --ete-3:#B91C1C;
+  --safe-t:env(safe-area-inset-top,0px);
+  --safe-b:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:calc(76px + var(--safe-t));
+  -webkit-text-size-adjust:100%;
+}
+html,body{height:100%;}
+body{
+  margin:0;
+  font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  color:var(--ink);
+  background:var(--bg-base);
+  min-height:100%;
+  padding-top:var(--safe-t);
+  padding-bottom:var(--safe-b);
+  overflow-x:hidden;
+  line-height:1.45;
+}
+h1,h2,h3,.display{font-family:'Fraunces',Georgia,'Times New Roman',serif;}
+button{font-family:inherit;}
+img{max-width:100%;}
+a{color:inherit;}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+
+/* ===================== ANIMATED BACKGROUND ===================== */
+.bg-decor{
+  position:fixed; inset:0; z-index:-1; overflow:hidden; pointer-events:none;
+}
+.bg-decor span{
+  position:absolute; border-radius:50%; filter:blur(60px); opacity:.35;
+}
+.bg-decor span:nth-child(1){width:46vmax;height:46vmax; top:-18vmax; left:-14vmax; background:radial-gradient(circle,var(--brand-2),transparent 70%); animation:float1 26s ease-in-out infinite;}
+.bg-decor span:nth-child(2){width:38vmax;height:38vmax; bottom:-16vmax; right:-12vmax; background:radial-gradient(circle,var(--brand-3),transparent 70%); animation:float2 32s ease-in-out infinite;}
+.bg-decor span:nth-child(3){width:30vmax;height:30vmax; top:35%; right:8%; background:radial-gradient(circle,var(--brand-1),transparent 70%); animation:float3 22s ease-in-out infinite;}
+.bg-decor span:nth-child(4){width:26vmax;height:26vmax; bottom:12%; left:6%; background:radial-gradient(circle,#FBBF24,transparent 72%); opacity:.22; animation:float1 30s ease-in-out infinite reverse;}
+@keyframes float1{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(4vmax,3vmax) scale(1.08);}}
+@keyframes float2{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-3vmax,-4vmax) scale(1.1);}}
+@keyframes float3{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-2vmax,3vmax) scale(0.95);}}
+@media (prefers-reduced-motion:reduce){
+  .bg-decor span{animation:none !important;}
+}
+
+/* ===================== GLASS CARD BASE ===================== */
+.card{
+  background:var(--glass-bg);
+  -webkit-backdrop-filter:blur(22px) saturate(160%);
+  backdrop-filter:blur(22px) saturate(160%);
+  border:1px solid var(--glass-border);
+  border-radius:var(--radius-lg);
+  box-shadow:var(--glass-shadow);
+  padding:28px;
+  position:relative;
+  overflow:hidden;
+  transition:transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease;
+}
+@media (hover:hover){
+  .card.hoverable:hover{
+    transform:translateY(-6px);
+    box-shadow:0 20px 44px rgba(90,60,150,.18), 0 4px 12px rgba(90,60,150,.1);
+  }
+}
+.card::before{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(120deg,rgba(255,255,255,.5),transparent 40%);
+  pointer-events:none;
+}
+
+/* ===================== LOADING SCREEN ===================== */
+#loadingScreen{
+  position:fixed; inset:0; z-index:999;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px;
+  background:linear-gradient(160deg,#EDE9FE,#FCE7F3 60%,#FEF3C7);
+  transition:opacity .5s ease, visibility .5s ease;
+}
+#loadingScreen.hide{opacity:0; visibility:hidden; pointer-events:none;}
+.loader-emoji{font-size:54px; animation:bob 1.6s ease-in-out infinite;}
+@media (prefers-reduced-motion:reduce){.loader-emoji{animation:none;}}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
+.loader-dots{display:flex; gap:8px;}
+.loader-dots span{width:10px;height:10px;border-radius:50%;background:var(--brand-grad); animation:pulseDot 1.2s ease-in-out infinite;}
+.loader-dots span:nth-child(2){animation-delay:.15s;}
+.loader-dots span:nth-child(3){animation-delay:.3s;}
+@keyframes pulseDot{0%,80%,100%{opacity:.25; transform:scale(.75);}40%{opacity:1; transform:scale(1);}}
+@media (prefers-reduced-motion:reduce){.loader-dots span{animation:none; opacity:.8;}}
+.loader-text{font-weight:700; color:var(--ink-soft); letter-spacing:.02em;}
+
+/* ===================== HEADER ===================== */
+.site-header{
+  position:sticky; top:0; z-index:60;
+  padding-top:var(--safe-t);
+  background:rgba(246,243,252,.72);
+  -webkit-backdrop-filter:blur(16px);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.6);
+}
+.header-inner{
+  max-width:1180px; margin:0 auto; padding:14px 20px;
+  display:flex; align-items:center; gap:18px; justify-content:space-between;
+}
+.brand{
+  font-family:'Fraunces',serif; font-weight:700; font-size:19px; display:flex; align-items:center; gap:8px; white-space:nowrap;
+}
+.desktop-nav{display:none; gap:6px;}
+.desktop-nav button{
+  border:none; background:transparent; padding:10px 16px; border-radius:999px;
+  font-weight:700; font-size:14.5px; color:var(--ink-soft); cursor:pointer; transition:background .25s, color .25s;
+}
+.desktop-nav button:hover, .desktop-nav button.active{background:rgba(255,255,255,.7); color:var(--brand-1);}
+.desktop-nav button:focus-visible, .header-meta button:focus-visible{outline:2px solid var(--brand-1); outline-offset:2px;}
+.header-meta{display:flex; gap:8px; align-items:center;}
+.badge{
+  font-size:12.5px; font-weight:800; padding:7px 13px; border-radius:999px;
+  background:var(--glass-bg-strong); border:1px solid var(--glass-border); color:var(--ink-soft);
+  white-space:nowrap;
+}
+.badge.offline{background:#FEF3C7; color:#92400E; border-color:#FDE68A;}
+@media (min-width:900px){
+  .desktop-nav{display:flex;}
+}
+
+/* ===================== LAYOUT / SECTIONS ===================== */
+main{max-width:1180px; margin:0 auto; padding:26px 18px 100px;}
+.section{padding:52px 0 6px; scroll-margin-top:90px;}
+.section:first-of-type{padding-top:18px;}
+.section-title{
+  font-size:clamp(22px,3.4vw,30px); font-weight:700; margin:0 0 20px; letter-spacing:-.01em;
+}
+
+/* Entrance animation */
+.reveal{opacity:0; transform:translateY(18px);}
+.reveal.in{animation:revealIn .7s cubic-bezier(.22,1,.36,1) forwards;}
+@keyframes revealIn{to{opacity:1; transform:translateY(0);}}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1 !important; transform:none !important; animation:none !important;}
+}
+
+/* ===================== HERO ===================== */
+.hero-grid{display:grid; grid-template-columns:1fr; gap:20px; margin-bottom:20px;}
+@media (min-width:860px){.hero-grid{grid-template-columns:1.55fr 1fr;}}
+
+.hero-card{
+  padding:36px 30px;
+  background:linear-gradient(150deg,rgba(255,255,255,.72),rgba(255,255,255,.5));
+  min-height:340px;
+  display:flex; flex-direction:column; justify-content:center;
+}
+.hero-card.on-vacation{
+  background:var(--period-grad, var(--brand-grad));
+  color:#fff;
+}
+.hero-eyebrow{font-weight:800; font-size:13.5px; letter-spacing:.04em; opacity:.75; margin:0 0 6px;}
+.hero-period-name{font-family:'Fraunces',serif; font-weight:700; font-size:clamp(20px,3vw,26px); margin:0 0 14px; display:flex; align-items:center; gap:10px;}
+.hero-number-row{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:6px;}
+.hero-number{
+  font-family:'Fraunces',serif; font-weight:900; font-size:clamp(64px,13vw,118px); line-height:.9;
+  background:var(--brand-grad); -webkit-background-clip:text; background-clip:text; color:transparent;
+  letter-spacing:-.02em;
+}
+.hero-card.on-vacation .hero-number{background:none; -webkit-text-fill-color:#fff; color:#fff;}
+.hero-number-label{font-weight:800; font-size:clamp(16px,2.4vw,20px); text-transform:uppercase; letter-spacing:.03em; opacity:.8;}
+.hero-sub{font-weight:600; color:var(--ink-soft); margin:4px 0 18px;}
+.hero-card.on-vacation .hero-sub{color:rgba(255,255,255,.92);}
+.hero-daterange{
+  display:inline-flex; align-items:center; gap:8px; font-weight:700; font-size:14.5px;
+  background:var(--glass-bg-strong); padding:9px 16px; border-radius:999px; width:fit-content; margin-bottom:22px;
+  border:1px solid var(--glass-border);
+}
+.hero-card.on-vacation .hero-daterange{background:rgba(255,255,255,.22); border-color:rgba(255,255,255,.35); color:#fff;}
+.hero-counters{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+.hero-counter{
+  background:var(--glass-bg-strong); border:1px solid var(--glass-border); border-radius:var(--radius-sm);
+  padding:14px 16px;
+}
+.hero-card.on-vacation .hero-counter{background:rgba(255,255,255,.18); border-color:rgba(255,255,255,.3);}
+.hero-counter-label{font-size:12.5px; font-weight:700; opacity:.7; margin:0 0 4px;}
+.hero-counter-value{font-size:24px; font-weight:800; font-variant-numeric:tabular-nums;}
+.hero-next-line{margin-top:18px; font-size:14px; font-weight:700; opacity:.9;}
+
+.day-info-card{display:flex; flex-direction:column; gap:16px; justify-content:center;}
+.day-info-date{font-family:'Fraunces',serif; font-weight:700; font-size:clamp(19px,2.6vw,23px); text-transform:capitalize;}
+.day-info-rows{display:flex; flex-direction:column; gap:10px;}
+.day-info-row{display:flex; align-items:center; justify-content:space-between; gap:10px; font-size:14.5px; font-weight:700; color:var(--ink-soft); padding-bottom:10px; border-bottom:1px dashed rgba(90,60,150,.15);}
+.day-info-row:last-child{border-bottom:none; padding-bottom:0;}
+.day-info-row span:last-child{color:var(--ink); text-align:right;}
+.status-pill{
+  display:inline-flex; align-items:center; gap:6px; padding:5px 12px; border-radius:999px; font-weight:800; font-size:12.5px;
+}
+.status-pill.school{background:#DCFCE7; color:#166534;}
+.status-pill.vacation{background:#FFE4E6; color:#9F1239;}
+
+/* ===================== PROGRESSION ===================== */
+.progression-card{padding:30px;}
+.progression-head{display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:10px; margin-bottom:8px;}
+.progression-title{font-family:'Fraunces',serif; font-weight:700; font-size:20px; margin:0;}
+.progression-pct{font-family:'Fraunces',serif; font-weight:900; font-size:38px; background:var(--brand-grad); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.progress-track{
+  height:14px; border-radius:999px; background:rgba(120,90,190,.14); overflow:hidden; margin:14px 0 24px; position:relative;
+}
+.progress-fill{
+  height:100%; border-radius:999px; background:var(--brand-grad); width:0%;
+  transition:width 1.1s cubic-bezier(.22,1,.36,1);
+  position:relative;
+}
+.progress-fill::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);
+  animation:shimmer 2.4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion:reduce){.progress-fill{transition:none;} .progress-fill::after{animation:none;}}
+@keyframes shimmer{0%{transform:translateX(-100%);}100%{transform:translateX(100%);}}
+.progression-stats{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
+@media (min-width:640px){.progression-stats{grid-template-columns:repeat(4,1fr);}}
+.pstat{background:var(--glass-bg-strong); border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:14px;}
+.pstat-value{font-size:22px; font-weight:800; font-variant-numeric:tabular-nums;}
+.pstat-label{font-size:12px; font-weight:700; color:var(--ink-faint); margin-top:2px;}
+
+/* ===================== VACATION CARDS ===================== */
+.vacances-grid{display:grid; grid-template-columns:1fr; gap:18px;}
+@media (min-width:720px){.vacances-grid{grid-template-columns:1fr 1fr;}}
+@media (min-width:1080px){.vacances-grid{grid-template-columns:repeat(3,1fr);}}
+.vac-card{
+  cursor:pointer; color:#fff; padding:24px; display:flex; flex-direction:column; gap:12px;
+  background:var(--vgrad); border:1px solid rgba(255,255,255,.25);
+}
+.vac-card.current{grid-column:1/-1; padding:30px;}
+@media (min-width:1080px){.vac-card.current{grid-column:span 3;}}
+.vac-card::before{background:linear-gradient(120deg,rgba(255,255,255,.28),transparent 45%);}
+.vac-top{display:flex; align-items:flex-start; justify-content:space-between; gap:10px;}
+.vac-name{font-family:'Fraunces',serif; font-weight:700; font-size:22px; display:flex; align-items:center; gap:8px; margin:0;}
+.vac-status{font-size:11.5px; font-weight:800; padding:5px 11px; border-radius:999px; background:rgba(255,255,255,.25); white-space:nowrap;}
+.vac-dates{font-weight:700; font-size:14.5px; opacity:.95;}
+.vac-meta{display:flex; flex-wrap:wrap; gap:8px; margin-top:2px;}
+.vac-chip{background:rgba(255,255,255,.2); border-radius:999px; padding:5px 12px; font-size:12.5px; font-weight:700;}
+.vac-progress-track{height:8px; border-radius:999px; background:rgba(255,255,255,.28); overflow:hidden; margin-top:6px;}
+.vac-progress-fill{height:100%; border-radius:999px; background:#fff; width:0%; transition:width 1s cubic-bezier(.22,1,.36,1);}
+@media (prefers-reduced-motion:reduce){.vac-progress-fill{transition:none;}}
+.vac-detail{
+  max-height:0; overflow:hidden; transition:max-height .4s ease; font-size:13.5px; font-weight:600; line-height:1.6;
+}
+@media (prefers-reduced-motion:reduce){.vac-detail{transition:none;}}
+.vac-card.expanded .vac-detail{max-height:220px;}
+.vac-hint{font-size:12px; font-weight:700; opacity:.8; margin-top:auto;}
+.vac-link-btn{
+  align-self:flex-start; margin-top:4px; background:rgba(255,255,255,.22); border:1px solid rgba(255,255,255,.4);
+  color:#fff; font-weight:700; font-size:12.5px; padding:8px 14px; border-radius:999px; cursor:pointer; transition:background .2s, transform .15s;
+}
+.vac-link-btn:hover{background:rgba(255,255,255,.34);}
+.vac-link-btn:active{transform:scale(.96);}
+
+/* ===================== CALENDAR ===================== */
+.calendar-card{padding:24px;}
+.calendar-header{display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; gap:10px;}
+.calendar-nav-btn{
+  width:42px; height:42px; border-radius:50%; border:1px solid var(--glass-border); background:var(--glass-bg-strong);
+  font-size:18px; cursor:pointer; font-weight:800; color:var(--brand-1); transition:transform .18s, background .2s;
+  display:flex; align-items:center; justify-content:center;
+}
+.calendar-nav-btn:hover{background:#fff;}
+.calendar-nav-btn:active{transform:scale(.9);}
+#calendarMonthLabel{font-family:'Fraunces',serif; font-weight:700; font-size:clamp(18px,2.6vw,22px); text-transform:capitalize; text-align:center;}
+.calendar-weekdays{display:grid; grid-template-columns:repeat(7,1fr); gap:4px; margin-bottom:6px;}
+.calendar-weekdays span{text-align:center; font-size:11.5px; font-weight:800; color:var(--ink-faint); text-transform:uppercase; padding:4px 0;}
+.calendar-grid{display:grid; grid-template-columns:repeat(7,1fr); gap:4px; transition:opacity .25s ease, transform .25s ease;}
+.calendar-grid.switching{opacity:0; transform:translateX(8px);}
+@media (prefers-reduced-motion:reduce){.calendar-grid{transition:none;} .calendar-grid.switching{opacity:1; transform:none;}}
+.cal-day{
+  aspect-ratio:1/1; min-height:38px; border-radius:12px; display:flex; align-items:flex-start; justify-content:center;
+  padding-top:7px; font-size:13px; font-weight:700; color:var(--ink); cursor:pointer; position:relative;
+  background:rgba(255,255,255,.45); border:1px solid transparent; transition:transform .15s, box-shadow .15s;
+}
+.cal-day.empty{visibility:hidden; cursor:default;}
+.cal-day:hover{transform:translateY(-2px); box-shadow:0 6px 14px rgba(90,60,150,.16);}
+.cal-day:active{transform:scale(.94);}
+.cal-day.weekend{background:rgba(148,133,196,.14); color:var(--ink-soft);}
+.cal-day.holiday{background:#FEE2E2; color:#9F1239;}
+.cal-day.holiday::after{content:"✦"; position:absolute; bottom:4px; font-size:8px;}
+.cal-day.vacation{color:#fff; background:var(--vgrad);}
+.cal-day.today{outline:2.5px solid var(--brand-1); outline-offset:1px; font-weight:900;}
+.cal-day:focus-visible{outline:2px solid var(--brand-1); outline-offset:2px;}
+.calendar-legend{display:flex; flex-wrap:wrap; gap:14px; margin-top:18px; font-size:12px; font-weight:700; color:var(--ink-soft);}
+.legend-dot{display:inline-flex; align-items:center; gap:6px;}
+.legend-swatch{width:12px; height:12px; border-radius:4px; display:inline-block;}
+
+/* ===================== STATS ===================== */
+.stats-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+@media (min-width:640px){.stats-grid{grid-template-columns:repeat(3,1fr);}}
+@media (min-width:960px){.stats-grid{grid-template-columns:repeat(4,1fr);}}
+.stat-card{padding:20px;}
+.stat-icon{font-size:22px; margin-bottom:8px; display:block;}
+.stat-value{font-family:'Fraunces',serif; font-weight:800; font-size:26px; font-variant-numeric:tabular-nums;}
+.stat-label{font-size:12.5px; font-weight:700; color:var(--ink-faint); margin-top:4px; line-height:1.4;}
+.split-bar{display:flex; height:22px; border-radius:999px; overflow:hidden; margin-top:8px; border:1px solid var(--glass-border);}
+.split-bar div{height:100%;}
+.split-legend{display:flex; flex-wrap:wrap; gap:12px; margin-top:10px; font-size:11.5px; font-weight:700; color:var(--ink-soft);}
+
+/* ===================== FOOTER ===================== */
+.site-footer{margin-top:60px; padding:20px 4px 4px; text-align:center;}
+.footer-note{font-size:11.5px; color:var(--ink-faint); line-height:1.7; max-width:640px; margin:0 auto;}
+.footer-note a{text-decoration:underline;}
+
+/* ===================== ERROR BANNER ===================== */
+.error-banner{
+  position:fixed; left:50%; bottom:calc(90px + var(--safe-b)); transform:translateX(-50%);
+  background:#fff; border:1px solid #FCA5A5; box-shadow:0 12px 30px rgba(150,20,20,.18);
+  border-radius:18px; padding:16px 18px; max-width:min(92vw,420px); z-index:80;
+  display:flex; flex-direction:column; gap:10px; text-align:left;
+}
+.error-banner p{margin:0; font-weight:700; font-size:14px; color:#7F1D1D;}
+.error-banner button{
+  align-self:flex-start; background:#DC2626; color:#fff; border:none; padding:9px 16px; border-radius:999px;
+  font-weight:800; font-size:13px; cursor:pointer;
+}
+@media (min-width:900px){.error-banner{bottom:24px;}}
+.offline-note{
+  max-width:min(92vw,420px);
+}
+
+/* ===================== BOTTOM NAV (mobile) ===================== */
+.bottom-nav{
+  position:fixed; left:0; right:0; bottom:0; z-index:70;
+  display:flex; justify-content:space-around;
+  background:rgba(255,255,255,.85); -webkit-backdrop-filter:blur(18px); backdrop-filter:blur(18px);
+  border-top:1px solid rgba(255,255,255,.7);
+  padding:8px 6px calc(8px + var(--safe-b));
+  box-shadow:0 -6px 20px rgba(90,60,150,.08);
+}
+.bottom-nav button{
+  background:none; border:none; display:flex; flex-direction:column; align-items:center; gap:3px;
+  font-size:19px; color:var(--ink-faint); font-weight:700; padding:4px 10px; border-radius:14px; cursor:pointer;
+  transition:color .2s, transform .15s;
+}
+.bottom-nav button span{font-size:10.5px; font-family:'Manrope',sans-serif;}
+.bottom-nav button.active{color:var(--brand-1); transform:translateY(-2px);}
+.bottom-nav button:active{transform:scale(.9);}
+@media (min-width:900px){.bottom-nav{display:none;}}
+@media (max-width:899px){ main{padding-bottom:96px;} }
+
+/* ===================== MODAL ===================== */
+.modal{position:fixed; inset:0; z-index:200; display:flex; align-items:flex-end; justify-content:center;}
+@media (min-width:640px){.modal{align-items:center;}}
+.modal[hidden]{display:none;}
+.modal-backdrop{position:absolute; inset:0; background:rgba(36,31,61,.45); -webkit-backdrop-filter:blur(4px); backdrop-filter:blur(4px);}
+.modal-panel{
+  position:relative; background:#fff; border-radius:26px 26px 0 0; padding:28px 26px calc(28px + var(--safe-b));
+  width:100%; max-width:480px; max-height:82vh; overflow:auto; box-shadow:0 -10px 40px rgba(60,30,90,.25);
+  animation:modalUp .35s cubic-bezier(.22,1,.36,1);
+}
+@media (min-width:640px){.modal-panel{border-radius:26px; max-height:88vh;}}
+@keyframes modalUp{from{transform:translateY(24px); opacity:0;}to{transform:translateY(0); opacity:1;}}
+@media (prefers-reduced-motion:reduce){.modal-panel{animation:none;}}
+.modal-close{
+  position:absolute; top:16px; right:16px; width:34px; height:34px; border-radius:50%; border:none;
+  background:rgba(120,90,190,.1); font-size:15px; cursor:pointer; color:var(--ink-soft);
+}
+.modal-close:hover{background:rgba(120,90,190,.2);}
+#modalContent h3{font-family:'Fraunces',serif; margin:0 0 4px; font-size:20px; text-transform:capitalize;}
+#modalContent .modal-badge{display:inline-flex; align-items:center; gap:6px; font-weight:800; font-size:13px; padding:6px 13px; border-radius:999px; margin:10px 0;}
+#modalContent p{margin:6px 0; font-size:14.5px; color:var(--ink-soft); font-weight:600;}
+#modalContent .modal-strong{color:var(--ink); font-weight:800;}
+
+/* ===================== CONFETTI ===================== */
+#confettiCanvas{position:fixed; inset:0; z-index:150; pointer-events:none;}
+</style>
+</head>
+<body>
+
+<div class="bg-decor" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+
+<div id="loadingScreen">
+  <div class="loader-emoji" aria-hidden="true">🏖️</div>
+  <div class="loader-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+  <p class="loader-text">Chargement du calendrier scolaire…</p>
+</div>
+
+<canvas id="confettiCanvas" aria-hidden="true"></canvas>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand"><span aria-hidden="true">🏖️</span> Countdown Vacances</div>
+    <nav class="desktop-nav" aria-label="Navigation principale">
+      <button type="button" data-target="accueil" class="active">⌂ Accueil</button>
+      <button type="button" data-target="calendrier">📅 Calendrier</button>
+      <button type="button" data-target="vacances">🏖️ Vacances</button>
+      <button type="button" data-target="statistiques">📊 Statistiques</button>
+    </nav>
+    <div class="header-meta">
+      <span class="badge">Zone B</span>
+      <span class="badge" id="schoolYearBadge">—</span>
+    </div>
+  </div>
+</header>
+
+<main id="mainContent" hidden>
+
+  <section id="accueil" class="section">
+    <div class="hero-grid">
+      <article class="card hoverable reveal hero-card" id="heroCard" aria-live="polite"></article>
+      <article class="card hoverable reveal day-info-card" id="dayInfoCard"></article>
+    </div>
+    <article class="card hoverable reveal progression-card" id="progressionCard"></article>
+  </section>
+
+  <section id="vacances" class="section">
+    <h2 class="section-title">🏖️ Toutes les périodes de vacances</h2>
+    <div class="vacances-grid" id="vacancesGrid"></div>
+  </section>
+
+  <section id="calendrier" class="section">
+    <h2 class="section-title">📅 Calendrier scolaire interactif</h2>
+    <div class="card calendar-card reveal">
+      <div class="calendar-header">
+        <button type="button" class="calendar-nav-btn" id="prevMonth" aria-label="Mois précédent">←</button>
+        <div id="calendarMonthLabel"></div>
+        <button type="button" class="calendar-nav-btn" id="nextMonth" aria-label="Mois suivant">→</button>
+      </div>
+      <div class="calendar-weekdays">
+        <span>Lun</span><span>Mar</span><span>Mer</span><span>Jeu</span><span>Ven</span><span>Sam</span><span>Dim</span>
+      </div>
+      <div class="calendar-grid" id="calendarGrid"></div>
+      <div class="calendar-legend" id="calendarLegend"></div>
+    </div>
+  </section>
+
+  <section id="statistiques" class="section">
+    <h2 class="section-title">📊 Statistiques de l'année scolaire</h2>
+    <div class="stats-grid" id="statsGrid"></div>
+  </section>
+
+  <footer class="site-footer">
+    <p class="footer-note" id="footerNote"></p>
+  </footer>
+
+</main>
+
+<div id="errorBanner" class="error-banner" hidden role="alert">
+  <p>⚠️ Impossible de récupérer les dernières dates. Veuillez réessayer plus tard.</p>
+  <button type="button" id="retryBtn">🔄 Réessayer</button>
+</div>
+
+<nav class="bottom-nav" aria-label="Navigation mobile">
+  <button type="button" data-target="accueil" class="active"><span aria-hidden="true">⌂</span><span>Accueil</span></button>
+  <button type="button" data-target="calendrier"><span aria-hidden="true">📅</span><span>Calendrier</span></button>
+  <button type="button" data-target="vacances"><span aria-hidden="true">🏖️</span><span>Vacances</span></button>
+  <button type="button" data-target="statistiques"><span aria-hidden="true">📊</span><span>Stats</span></button>
+</nav>
+
+<div id="dayModal" class="modal" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitleAnchor">
+    <button type="button" class="modal-close" data-close aria-label="Fermer">✕</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+/* =====================================================================
+   1. CONFIGURATION
+   ===================================================================== */
+const CONFIG = {
+  academie: "Nantes",
+  zoneLabel: "Zone B",
+  apiBase: "https://data.education.gouv.fr/api/explore/v2.1/catalog/datasets/fr-en-calendrier-scolaire/records",
+  fetchTimeoutMs: 9000,
+  cacheKey: "cv_cache_v1",
+  periodOrder: ["toussaint","noel","hiver","printemps","ete"],
+  periodMeta: {
+    toussaint: { name: "Toussaint",  full: "Vacances de la Toussaint", emoji: "🍂", g: ["--toussaint-1","--toussaint-2","--toussaint-3"] },
+    noel:      { name: "Noël",       full: "Vacances de Noël",         emoji: "🎄", g: ["--noel-1","--noel-2","--noel-3"] },
+    hiver:     { name: "Hiver",      full: "Vacances d'Hiver",         emoji: "⛷️", g: ["--hiver-1","--hiver-2","--hiver-3"] },
+    printemps: { name: "Printemps",  full: "Vacances de Printemps",    emoji: "🌸", g: ["--printemps-1","--printemps-2","--printemps-3"] },
+    ete:       { name: "Été",        full: "Vacances d'Été",           emoji: "☀️", g: ["--ete-1","--ete-2","--ete-3"] }
+  },
+  // Verified fallback dataset (Ministère de l'Éducation nationale, académie de Nantes, zone B),
+  // used only as a last-resort offline safety net for the 2026-2027 school year, and only when
+  // both the live API and any previously cached live data are unavailable.
+  fallback: {
+    schoolYear: "2026-2027",
+    schoolYearStart: "2026-09-01",
+    periods: {
+      toussaint: { start: "2026-10-17", end: "2026-11-02" },
+      noel:      { start: "2026-12-19", end: "2027-01-04" },
+      hiver:     { start: "2027-02-20", end: "2027-03-08" },
+      printemps: { start: "2027-04-17", end: "2027-05-03" },
+      ete:       { start: "2027-07-03", end: "2027-09-02" }
+    },
+    nextToussaint: { start: "2027-10-23", end: "2027-11-08" }
+  }
+};
+
+const WEEKDAY_NAMES = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"];
+const WEEKDAY_SHORT = ["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"];
+const MONTH_NAMES = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
+
+/* =====================================================================
+   2. DATE UTILITIES (timezone-safe: everything works on local-midnight
+      Date objects built from Y/M/D components, never from raw ISO
+      parsing, to avoid off-by-one / UTC shift bugs)
+   ===================================================================== */
+function ymdToDate(ymd){
+  const [y,m,d] = ymd.split("-").map(Number);
+  return new Date(y, m - 1, d);
+}
+function isoToYmd(iso){
+  // Accepts "2026-10-17T00:00:00+02:00" or "2026-10-17" -> "2026-10-17"
+  return String(iso).slice(0,10);
+}
+function isoToDate(iso){
+  return ymdToDate(isoToYmd(iso));
+}
+function dateToYmd(d){
+  const y = d.getFullYear();
+  const m = String(d.getMonth()+1).padStart(2,"0");
+  const day = String(d.getDate()).padStart(2,"0");
+  return `${y}-${m}-${day}`;
+}
+function addDays(d, n){
+  return new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
+}
+function startOfDay(d){
+  return new Date(d.getFullYear(), d.getMonth(), d.getDate());
+}
+function diffDays(a, b){
+  // b - a, in whole days (both local midnight)
+  return Math.round((b.getTime() - a.getTime()) / 86400000);
+}
+function isWeekend(d){
+  const wd = d.getDay();
+  return wd === 0 || wd === 6;
+}
+function sameDate(a,b){
+  return a.getFullYear()===b.getFullYear() && a.getMonth()===b.getMonth() && a.getDate()===b.getDate();
+}
+function formatLongDateFR(d){
+  return `${WEEKDAY_NAMES[d.getDay()]} ${d.getDate()} ${MONTH_NAMES[d.getMonth()]} ${d.getFullYear()}`;
+}
+function formatShortDateFR(d){
+  return `${d.getDate()} ${MONTH_NAMES[d.getMonth()]}`;
+}
+function todayLocal(){
+  return startOfDay(new Date());
+}
+
+/* =====================================================================
+   3. JOURS FÉRIÉS (French public holidays) — computed deterministically
+      via the Gauss/Meeus Gregorian Easter algorithm, so it is exact for
+      any year, past or future, with no network dependency at all.
+   ===================================================================== */
+function computeEasterSunday(year){
+  const a = year % 19;
+  const b = Math.floor(year / 100);
+  const c = year % 100;
+  const d = Math.floor(b / 4);
+  const e = b % 4;
+  const f = Math.floor((b + 8) / 25);
+  const g = Math.floor((b - f + 1) / 3);
+  const h = (19*a + b - d - g + 15) % 30;
+  const i = Math.floor(c / 4);
+  const k = c % 4;
+  const l = (32 + 2*e + 2*i - h - k) % 7;
+  const m = Math.floor((a + 11*h + 22*l) / 451);
+  const month = Math.floor((h + l - 7*m + 114) / 31);
+  const day = ((h + l - 7*m + 114) % 31) + 1;
+  return new Date(year, month - 1, day);
+}
+function computeJoursFeriesForYear(year){
+  const easter = computeEasterSunday(year);
+  return [
+    { date: new Date(year,0,1),  name: "Jour de l'An" },
+    { date: addDays(easter,1),   name: "Lundi de Pâques" },
+    { date: new Date(year,4,1),  name: "Fête du Travail" },
+    { date: new Date(year,4,8),  name: "Victoire 1945" },
+    { date: addDays(easter,39),  name: "Ascension" },
+    { date: addDays(easter,50),  name: "Lundi de Pentecôte" },
+    { date: new Date(year,6,14), name: "Fête Nationale" },
+    { date: new Date(year,7,15), name: "Assomption" },
+    { date: new Date(year,10,1), name: "Toussaint" },
+    { date: new Date(year,10,11),name: "Armistice 1918" },
+    { date: new Date(year,11,25),name: "Noël" }
+  ];
+}
+// Cache of {ymd -> name} across a rolling window of years
+const holidayCache = new Map(); // year -> array
+function joursFeriesForYear(year){
+  if(!holidayCache.has(year)) holidayCache.set(year, computeJoursFeriesForYear(year));
+  return holidayCache.get(year);
+}
+function isHoliday(d, holidayMap){
+  return holidayMap.has(dateToYmd(d));
+}
+function buildHolidayMap(years){
+  const map = new Map();
+  years.forEach(y => joursFeriesForYear(y).forEach(h => map.set(dateToYmd(h.date), h.name)));
+  return map;
+}
+
+/* =====================================================================
+   4. ANNÉE SCOLAIRE
+   ===================================================================== */
+function schoolYearStartYear(date){
+  const y = date.getFullYear();
+  const sept1 = new Date(y, 8, 1);
+  return date.getTime() >= sept1.getTime() ? y : y - 1;
+}
+function schoolYearLabel(date){
+  const y = schoolYearStartYear(date);
+  return `${y}-${y+1}`;
+}
+function schoolYearLabelFromStartYear(y){ return `${y}-${y+1}`; }
+
+/* =====================================================================
+   5. RÉCUPÉRATION DES DONNÉES (API officielle data.education.gouv.fr,
+      dataset "fr-en-calendrier-scolaire", filtré Académie de Nantes /
+      Zone B). Jamais de données inventées : en cas d'échec, on retombe
+      sur un cache local de la dernière synchronisation réussie, puis
+      (seulement pour l'année scolaire 2026-2027) sur un jeu de secours
+      vérifié manuellement, puis enfin sur un message d'erreur honnête.
+   ===================================================================== */
+function normalizeAccents(s){
+  return String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+}
+function matchPeriodKey(description){
+  const n = normalizeAccents(description);
+  if(n.includes("toussaint")) return "toussaint";
+  if(n.includes("noel")) return "noel";
+  if(n.includes("hiver")) return "hiver";
+  if(n.includes("printemps")) return "printemps";
+  if(n.includes("ete") && !n.includes("fete")) return "ete";
+  return null;
+}
+function buildApiUrl(){
+  const params = new URLSearchParams();
+  params.set("limit","200");
+  params.set("lang","fr");
+  params.set("timezone","Europe/Paris");
+  params.append("refine", `location:"${CONFIG.academie}"`);
+  params.append("refine", `zones:"${CONFIG.zoneLabel}"`);
+  return `${CONFIG.apiBase}?${params.toString()}`;
+}
+
+async function fetchWithTimeout(url, ms){
+  const controller = new AbortController();
+  const t = setTimeout(() => controller.abort(), ms);
+  try {
+    const res = await fetch(url, { signal: controller.signal, headers: { "Accept": "application/json" } });
+    return res;
+  } finally {
+    clearTimeout(t);
+  }
+}
+
+// Turns raw API rows (or fallback rows) into a normalized map:
+// { "2026-2027": { toussaint:{start,end}, noel:{...}, ... }, ... }
+function normalizeRawRows(rows){
+  // rows: array of { description, population, location, zones, start_date, end_date, annee_scolaire }
+  const grouped = new Map(); // key: annee_scolaire|periodKey -> best row
+  rows.forEach(r => {
+    if(!r || !r.start_date || !r.end_date || !r.annee_scolaire) return;
+    const population = normalizeAccents(r.population || "");
+    if(population.includes("enseignant")) return; // students/general only
+    const key = matchPeriodKey(r.description || "");
+    if(!key) return;
+    const groupKey = `${r.annee_scolaire}|${key}`;
+    const priority = population === "eleves" ? 2 : (population === "-" || population === "" ? 1 : 0);
+    const existing = grouped.get(groupKey);
+    if(!existing || priority > existing.priority){
+      grouped.set(groupKey, {
+        priority,
+        annee_scolaire: r.annee_scolaire,
+        key,
+        start: isoToYmd(r.start_date),
+        end: isoToYmd(r.end_date)
+      });
+    }
+  });
+  const bySchoolYear = new Map();
+  grouped.forEach(v => {
+    if(!bySchoolYear.has(v.annee_scolaire)) bySchoolYear.set(v.annee_scolaire, {});
+    bySchoolYear.get(v.annee_scolaire)[v.key] = { start: v.start, end: v.end };
+  });
+  return bySchoolYear;
+}
+
+async function fetchLiveData(){
+  const url = buildApiUrl();
+  const res = await fetchWithTimeout(url, CONFIG.fetchTimeoutMs);
+  if(!res || !res.ok) throw new Error("HTTP " + (res && res.status));
+  const data = await res.json();
+  let rows = [];
+  if(Array.isArray(data.results)) rows = data.results;
+  else if(Array.isArray(data.records)) rows = data.records.map(r => r.fields || r.record && r.record.fields || {});
+  else throw new Error("Format de réponse inattendu");
+  if(rows.length === 0) throw new Error("Réponse vide");
+  const bySchoolYear = normalizeRawRows(rows);
+  if(bySchoolYear.size === 0) throw new Error("Aucune période reconnue dans la réponse");
+  return bySchoolYear;
+}
+
+function loadCache(){
+  try {
+    const raw = localStorage.getItem(CONFIG.cacheKey);
+    if(!raw) return null;
+    const parsed = JSON.parse(raw);
+    if(!parsed || !parsed.bySchoolYear || !parsed.fetchedAt) return null;
+    // revive as Map
+    const map = new Map(Object.entries(parsed.bySchoolYear));
+    return { bySchoolYear: map, fetchedAt: parsed.fetchedAt };
+  } catch(e){ return null; }
+}
+function saveCache(bySchoolYear){
+  try {
+    const obj = {};
+    bySchoolYear.forEach((v,k) => obj[k] = v);
+    localStorage.setItem(CONFIG.cacheKey, JSON.stringify({ bySchoolYear: obj, fetchedAt: new Date().toISOString() }));
+  } catch(e){ /* storage unavailable: silently ignore, not critical */ }
+}
+function fallbackBySchoolYear(){
+  const map = new Map();
+  map.set(CONFIG.fallback.schoolYear, CONFIG.fallback.periods);
+  // also expose next year's Toussaint alone for continuity, under a synthetic next-year key
+  const [startY] = CONFIG.fallback.schoolYear.split("-").map(Number);
+  const nextLabel = schoolYearLabelFromStartYear(startY + 1);
+  map.set(nextLabel, { toussaint: CONFIG.fallback.nextToussaint });
+  return map;
+}
+
+// Master loader: tries live -> cache -> fallback -> null (error state)
+async function loadVacationData(){
+  try {
+    const live = await fetchLiveData();
+    saveCache(live);
+    return { bySchoolYear: live, source: "live", fetchedAt: new Date().toISOString() };
+  } catch(liveErr){
+    const cached = loadCache();
+    if(cached) return { bySchoolYear: cached.bySchoolYear, source: "cache", fetchedAt: cached.fetchedAt };
+    const today = todayLocal();
+    const currentSY = schoolYearLabel(today);
+    if(currentSY === CONFIG.fallback.schoolYear){
+      return { bySchoolYear: fallbackBySchoolYear(), source: "fallback", fetchedAt: null };
+    }
+    return null; // genuine error state — nothing honest to show
+  }
+}
+
+/* =====================================================================
+   6. CONSTRUCTION DU MODÈLE DE PÉRIODES
+      Convention (vérifiée sur les données officielles) :
+        - start = dernier jour de classe / premier jour "coloré" vacances
+        - end   = jour de la rentrée (donc jour d'école, exclu des vacances)
+      Une période "dure" de (end - start) jours, jour start inclus,
+      jour end exclu.
+   ===================================================================== */
+function buildPeriodModel(bySchoolYear, today){
+  const currentSY = schoolYearLabel(today);
+  const [curStartY] = currentSY.split("-").map(Number);
+  const prevSY = schoolYearLabelFromStartYear(curStartY - 1);
+  const nextSY = schoolYearLabelFromStartYear(curStartY + 1);
+
+  const curData = bySchoolYear.get(currentSY) || {};
+  const prevData = bySchoolYear.get(prevSY) || {};
+  const nextData = bySchoolYear.get(nextSY) || {};
+
+  // Rentrée (school year start) = end date of previous year's "été" period.
+  // Graceful fallback: if unavailable, approximate with Sept 1st.
+  let schoolYearStart;
+  if(prevData.ete && prevData.ete.end){
+    schoolYearStart = ymdToDate(prevData.ete.end);
+  } else {
+    schoolYearStart = new Date(curStartY, 8, 1);
+  }
+
+  // The 5 main periods of the current school year, in chronological order.
+  const periods = [];
+  CONFIG.periodOrder.forEach(key => {
+    const p = curData[key];
+    if(p && p.start && p.end){
+      periods.push({
+        key,
+        ...CONFIG.periodMeta[key],
+        start: ymdToDate(p.start),
+        end: ymdToDate(p.end),
+        startYmd: p.start,
+        endYmd: p.end
+      });
+    }
+  });
+  periods.sort((a,b) => a.start.getTime() - b.start.getTime());
+
+  // School year's last class day (before summer) = current year's "été".start
+  const schoolYearLastClassDay = curData.ete && curData.ete.start ? ymdToDate(curData.ete.start) : null;
+
+  // Continuity after summer: next school year's Toussaint (if published yet)
+  let afterSummer = null;
+  if(nextData.toussaint && nextData.toussaint.start){
+    afterSummer = {
+      key: "toussaint",
+      ...CONFIG.periodMeta.toussaint,
+      start: ymdToDate(nextData.toussaint.start),
+      end: ymdToDate(nextData.toussaint.end),
+      startYmd: nextData.toussaint.start,
+      endYmd: nextData.toussaint.end,
+      schoolYear: nextSY
+    };
+  }
+
+  return {
+    schoolYear: currentSY,
+    schoolYearStart,
+    schoolYearLastClassDay,
+    periods,
+    afterSummer
+  };
+}
+
+function isVacationDay(d, periods){
+  return periods.some(p => d.getTime() >= p.start.getTime() && d.getTime() < p.end.getTime());
+}
+function vacationPeriodFor(d, periods){
+  return periods.find(p => d.getTime() >= p.start.getTime() && d.getTime() < p.end.getTime()) || null;
+}
+function isSchoolDay(d, periods, holidayMap){
+  return !isWeekend(d) && !isHoliday(d, holidayMap) && !isVacationDay(d, periods);
+}
+function countSchoolDaysInclusive(from, to, periods, holidayMap){
+  if(to.getTime() < from.getTime()) return 0;
+  let c = 0, d = new Date(from);
+  while(d.getTime() <= to.getTime()){
+    if(isSchoolDay(d, periods, holidayMap)) c++;
+    d = addDays(d, 1);
+  }
+  return c;
+}
+function countWeekdaysStrictRange(fromExclusive, toInclusive, holidayMap){
+  // counts Mon-Fri, non-holiday days, strictly after fromExclusive, up to & including toInclusive
+  if(toInclusive.getTime() <= fromExclusive.getTime()) return 0;
+  let c = 0, d = addDays(fromExclusive, 1);
+  while(d.getTime() <= toInclusive.getTime()){
+    if(!isWeekend(d) && !isHoliday(d, holidayMap)) c++;
+    d = addDays(d, 1);
+  }
+  return c;
+}
+
+/* Determine what "state" we're in today: inside a vacation, or counting
+   down to the next one. Returns a rich object the renderers consume. */
+function computeCurrentState(model, today, holidayMap){
+  const { periods, afterSummer } = model;
+  let currentIdx = -1;
+  for(let i=0;i<periods.length;i++){
+    if(today.getTime() >= periods[i].start.getTime() && today.getTime() < periods[i].end.getTime()){
+      currentIdx = i; break;
+    }
+  }
+  if(currentIdx !== -1){
+    const cur = periods[currentIdx];
+    const next = periods[currentIdx+1] || afterSummer || null;
+    return {
+      onVacation: true,
+      current: cur,
+      next,
+      remainingVacationDays: diffDays(today, cur.end) // includes today
+    };
+  }
+  // not on vacation: find the next upcoming period (could be in `periods` or `afterSummer`)
+  let next = periods.find(p => p.start.getTime() > today.getTime()) || afterSummer || null;
+  let daysCalendar = null, daysSchool = null;
+  if(next){
+    daysCalendar = diffDays(today, next.start);
+    daysSchool = countWeekdaysStrictRange(today, next.start, holidayMap);
+  }
+  return {
+    onVacation: false,
+    current: null,
+    next,
+    daysCalendar,
+    daysSchool
+  };
+}
+
+/* =====================================================================
+   7. STATE GLOBAL DE L'APPLICATION
+   ===================================================================== */
+const APP = {
+  today: todayLocal(),
+  model: null,
+  state: null,
+  holidayMap: null,
+  dataSource: null,
+  fetchedAt: null,
+  calendarCursor: null, // {year, month} currently displayed
+  reducedMotion: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+};
+
+/* =====================================================================
+   8. PETITS UTILITAIRES DE RENDU
+   ===================================================================== */
+function el(tag, attrs, children){
+  const node = document.createElement(tag);
+  if(attrs) Object.keys(attrs).forEach(k => {
+    if(k === "class") node.className = attrs[k];
+    else if(k === "html") node.innerHTML = attrs[k];
+    else if(k.startsWith("on") && typeof attrs[k] === "function") node.addEventListener(k.slice(2), attrs[k]);
+    else node.setAttribute(k, attrs[k]);
+  });
+  (children||[]).forEach(c => { if(c) node.appendChild(typeof c === "string" ? document.createTextNode(c) : c); });
+  return node;
+}
+function periodGradientCss(meta){
+  return `linear-gradient(135deg, var(${meta.g[0]}), var(${meta.g[1]}) 55%, var(${meta.g[2]}))`;
+}
+function animateCount(elNode, target, suffix){
+  suffix = suffix || "";
+  if(APP.reducedMotion){ elNode.textContent = target + suffix; return; }
+  const duration = 900;
+  const start = performance.now();
+  function tick(now){
+    const p = Math.min(1, (now - start) / duration);
+    const eased = 1 - Math.pow(1-p, 3);
+    const val = Math.round(target * eased);
+    elNode.textContent = val + suffix;
+    if(p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+/* =====================================================================
+   9. RENDU — HERO CARD
+   ===================================================================== */
+function renderHero(){
+  const card = document.getElementById("heroCard");
+  const { state, model } = APP;
+  card.innerHTML = "";
+  card.style.removeProperty("--period-grad");
+
+  if(state.onVacation){
+    const p = state.current;
+    card.classList.add("on-vacation");
+    card.style.setProperty("--period-grad", periodGradientCss(p));
+    card.appendChild(el("p", { class: "hero-eyebrow" }, ["🎉 C'EST LES VACANCES !"]));
+    card.appendChild(el("h2", { class: "hero-period-name" }, [`${p.emoji} ${p.full}`]));
+    const numRow = el("div", { class: "hero-number-row" }, [
+      el("span", { class: "hero-number", id: "heroNumber" }, ["0"]),
+      el("span", { class: "hero-number-label" }, [state.remainingVacationDays > 1 ? "jours de vacances" : "jour de vacances"])
+    ]);
+    card.appendChild(numRow);
+    card.appendChild(el("p", { class: "hero-sub" }, [`Reprise des cours : ${formatLongDateFR(p.end)}`]));
+    if(state.next){
+      const label = state.next.schoolYear ? `${state.next.emoji} ${state.next.full} (${state.next.schoolYear})` : `${state.next.emoji} ${state.next.full}`;
+      card.appendChild(el("p", { class: "hero-next-line" }, [`Ensuite : ${label} — ${formatShortDateFR(state.next.start)}`]));
+    }
+    animateCount(document.getElementById("heroNumber"), state.remainingVacationDays);
+  } else if(state.next){
+    const p = state.next;
+    card.appendChild(el("p", { class: "hero-eyebrow" }, ["🏖️ PROCHAINES VACANCES"]));
+    card.appendChild(el("h2", { class: "hero-period-name" }, [`${p.emoji} ${p.full}`]));
+    if(state.daysCalendar === 0){
+      const numRow = el("div", { class: "hero-number-row" }, [
+        el("span", { class: "hero-number" }, ["🎉"]),
+        el("span", { class: "hero-number-label" }, ["C'est aujourd'hui !"])
+      ]);
+      card.appendChild(numRow);
+    } else {
+      const numRow = el("div", { class: "hero-number-row" }, [
+        el("span", { class: "hero-number", id: "heroNumber" }, ["0"]),
+        el("span", { class: "hero-number-label" }, [state.daysCalendar === 1 ? "jour" : "jours"])
+      ]);
+      card.appendChild(numRow);
+      animateCount(document.getElementById("heroNumber"), state.daysCalendar);
+    }
+    card.appendChild(el("p", { class: "hero-sub" }, [`avant le ${formatLongDateFR(p.start)}`]));
+    card.appendChild(el("div", { class: "hero-daterange" }, [`${formatShortDateFR(p.start)} → ${formatShortDateFR(p.end)}`]));
+    const counters = el("div", { class: "hero-counters" }, [
+      el("div", { class: "hero-counter" }, [
+        el("p", { class: "hero-counter-label" }, ["📅 Avec les week-ends"]),
+        el("p", { class: "hero-counter-value" }, [String(state.daysCalendar) + (state.daysCalendar===1?" jour":" jours")])
+      ]),
+      el("div", { class: "hero-counter" }, [
+        el("p", { class: "hero-counter-label" }, ["🎒 Sans les week-ends et jours fériés"]),
+        el("p", { class: "hero-counter-value" }, [String(state.daysSchool) + (state.daysSchool===1?" jour":" jours")])
+      ])
+    ]);
+    card.appendChild(counters);
+  } else {
+    card.appendChild(el("p", { class: "hero-eyebrow" }, ["🏖️ PROCHAINES VACANCES"]));
+    card.appendChild(el("p", { class: "hero-sub" }, ["Les prochaines dates ne sont pas encore publiées par le ministère. Reviens un peu plus tard !"]));
+  }
+}
+
+/* =====================================================================
+   10. RENDU — DAY INFO CARD
+   ===================================================================== */
+function renderDayInfo(){
+  const card = document.getElementById("dayInfoCard");
+  const { today, state, model } = APP;
+  card.innerHTML = "";
+  card.appendChild(el("p", { class: "hero-eyebrow" }, ["📌 AUJOURD'HUI"]));
+  card.appendChild(el("p", { class: "day-info-date" }, [formatLongDateFR(today)]));
+  const rows = el("div", { class: "day-info-rows" });
+  rows.appendChild(el("div", { class: "day-info-row" }, [el("span",null,["Année scolaire"]), el("span",null,[model.schoolYear])]));
+  rows.appendChild(el("div", { class: "day-info-row" }, [el("span",null,["Zone"]), el("span",null,[CONFIG.zoneLabel + " · Académie de " + CONFIG.academie])]));
+  const statusPill = state.onVacation
+    ? el("span", { class: "status-pill vacation" }, ["🏖️ Vacances"])
+    : el("span", { class: "status-pill school" }, ["🎒 École"]);
+  rows.appendChild(el("div", { class: "day-info-row" }, [el("span",null,["État actuel"]), statusPill]));
+  if(state.onVacation){
+    rows.appendChild(el("div", { class: "day-info-row" }, [el("span",null,["Période en cours"]), el("span",null,[`${state.current.emoji} ${state.current.name}`])]));
+  } else if(state.next){
+    rows.appendChild(el("div", { class: "day-info-row" }, [el("span",null,["Prochaines vacances"]), el("span",null,[`${state.next.emoji} ${state.next.name}`])]));
+  }
+  card.appendChild(rows);
+}
+
+/* =====================================================================
+   11. RENDU — PROGRESSION DE L'ANNÉE SCOLAIRE
+   ===================================================================== */
+function computeProgressionStats(){
+  const { model, today, holidayMap } = APP;
+  const start = model.schoolYearStart;
+  const end = model.schoolYearLastClassDay; // last class day before summer
+  if(!end){
+    return null;
+  }
+  const totalSchoolDays = countSchoolDaysInclusive(start, end, model.periods, holidayMap);
+  const clampedToday = today.getTime() > end.getTime() ? end : today;
+  const elapsedSchoolDays = today.getTime() < start.getTime() ? 0 : countSchoolDaysInclusive(start, clampedToday, model.periods, holidayMap);
+  const remainingSchoolDays = Math.max(0, totalSchoolDays - elapsedSchoolDays);
+
+  let vacElapsed = 0, vacRemaining = 0, vacTotal = 0;
+  model.periods.forEach(p => {
+    const len = diffDays(p.start, p.end);
+    vacTotal += len;
+    if(today.getTime() >= p.end.getTime()){
+      vacElapsed += len;
+    } else if(today.getTime() >= p.start.getTime()){
+      const doneHere = diffDays(p.start, today); // days of this period already elapsed (today not yet counted as done)
+      vacElapsed += doneHere;
+      vacRemaining += (len - doneHere);
+    } else {
+      vacRemaining += len;
+    }
+  });
+
+  const totalCalendarSpan = diffDays(start, end);
+  const pctCalendar = totalCalendarSpan > 0 ? Math.min(100, Math.max(0, (diffDays(start, clampedToday) / totalCalendarSpan) * 100)) : 0;
+
+  return {
+    pct: Math.round(pctCalendar),
+    totalSchoolDays, elapsedSchoolDays, remainingSchoolDays,
+    vacElapsed, vacRemaining, vacTotal,
+    start, end
+  };
+}
+
+function renderProgression(){
+  const card = document.getElementById("progressionCard");
+  const stats = computeProgressionStats();
+  card.innerHTML = "";
+  card.appendChild(el("div", { class: "progression-head" }, [
+    el("h3", { class: "progression-title" }, ["🎓 Progression de l'année scolaire"]),
+    el("span", { class: "progression-pct", id: "progPct" }, ["0%"])
+  ]));
+  const track = el("div", { class: "progress-track" });
+  const fill = el("div", { class: "progress-fill", id: "progFill" });
+  track.appendChild(fill);
+  card.appendChild(track);
+
+  if(stats){
+    const statsGrid = el("div", { class: "progression-stats" }, [
+      pstat(stats.elapsedSchoolDays, "Jours d'école écoulés"),
+      pstat(stats.remainingSchoolDays, "Jours d'école restants"),
+      pstat(stats.vacElapsed, "Jours de vacances écoulés"),
+      pstat(stats.vacRemaining, "Jours de vacances restants")
+    ]);
+    card.appendChild(statsGrid);
+    requestAnimationFrame(() => {
+      fill.style.width = stats.pct + "%";
+      animateCount(document.getElementById("progPct"), stats.pct, "%");
+    });
+  } else {
+    card.appendChild(el("p", { class: "hero-sub" }, ["Données insuffisantes pour calculer la progression complète (rentrée suivante non encore publiée)."]));
+  }
+}
+function pstat(value, label){
+  return el("div", { class: "pstat" }, [
+    el("div", { class: "pstat-value" }, [String(value)]),
+    el("div", { class: "pstat-label" }, [label])
+  ]);
+}
+
+/* =====================================================================
+   12. RENDU — CARTES DE VACANCES
+   ===================================================================== */
+function periodStatusLabel(p, today){
+  if(today.getTime() >= p.start.getTime() && today.getTime() < p.end.getTime()) return { text: "🟢 EN COURS", cls: "current" };
+  if(today.getTime() < p.start.getTime()) return { text: "🔵 À VENIR", cls: "" };
+  return { text: "⚪ TERMINÉES", cls: "" };
+}
+function renderVacationCards(){
+  const grid = document.getElementById("vacancesGrid");
+  const { model, today, holidayMap } = APP;
+  grid.innerHTML = "";
+  const total = model.periods.length;
+  model.periods.forEach((p, idx) => {
+    const status = periodStatusLabel(p, today);
+    const lenCal = diffDays(p.start, p.end);
+    const workingDays = countWorkingDaysInPeriod(p, holidayMap);
+    const card = el("article", {
+      class: "card hoverable vac-card" + (status.cls === "current" ? " current" : ""),
+      style: `--vgrad:${periodGradientCss(p)}`,
+      tabindex: "0",
+      role: "button",
+      "aria-expanded": "false",
+      "aria-label": `${p.full}, du ${formatLongDateFR(p.start)} au ${formatLongDateFR(p.end)}. Activer pour plus de détails.`
+    });
+    card.appendChild(el("div", { class: "vac-top" }, [
+      el("h3", { class: "vac-name" }, [`${p.emoji} ${p.name}`]),
+      el("span", { class: "vac-status" }, [status.text])
+    ]));
+    card.appendChild(el("p", { class: "vac-dates" }, [`${formatShortDateFR(p.start)} → ${formatShortDateFR(p.end)}`]));
+    const meta = el("div", { class: "vac-meta" }, [
+      el("span", { class: "vac-chip" }, [`${lenCal} j. calendaires`]),
+      el("span", { class: "vac-chip" }, [`${workingDays} j. ouvrés`]),
+      el("span", { class: "vac-chip" }, [`${idx+1}/${total}`])
+    ]);
+    card.appendChild(meta);
+    if(status.cls === "current"){
+      const elapsedHere = diffDays(p.start, today);
+      const pct = Math.round((elapsedHere/lenCal)*100);
+      const track = el("div", { class: "vac-progress-track" });
+      const fill = el("div", { class: "vac-progress-fill" });
+      track.appendChild(fill);
+      card.appendChild(track);
+      requestAnimationFrame(() => fill.style.width = pct + "%");
+      card.appendChild(el("p", { class: "vac-hint" }, [`Jour ${elapsedHere+1} / ${lenCal} des vacances`]));
+    } else {
+      const detail = el("div", { class: "vac-detail" }, [
+        el("p", null, [`Durée totale : ${lenCal} jours calendaires, dont ${workingDays} jours ouvrés.`]),
+        el("p", null, [`Reprise des cours : ${formatLongDateFR(p.end)}.`])
+      ]);
+      card.appendChild(detail);
+    }
+    const btn = el("button", { type: "button", class: "vac-link-btn" }, ["📅 Voir au calendrier"]);
+    btn.addEventListener("click", (ev) => { ev.stopPropagation(); jumpCalendarTo(p.start); scrollToSection("calendrier"); });
+    card.appendChild(btn);
+
+    function toggle(){
+      card.classList.toggle("expanded");
+      card.setAttribute("aria-expanded", card.classList.contains("expanded") ? "true" : "false");
+    }
+    card.addEventListener("click", toggle);
+    card.addEventListener("keydown", (ev) => { if(ev.key === "Enter" || ev.key === " "){ ev.preventDefault(); toggle(); } });
+    grid.appendChild(card);
+  });
+}
+function countWorkingDaysInPeriod(p, holidayMap){
+  let c = 0, d = new Date(p.start);
+  while(d.getTime() < p.end.getTime()){
+    if(!isWeekend(d) && !isHoliday(d, holidayMap)) c++;
+    d = addDays(d, 1);
+  }
+  return c;
+}
+
+/* =====================================================================
+   13. RENDU — CALENDRIER INTERACTIF
+   ===================================================================== */
+function jumpCalendarTo(date){
+  APP.calendarCursor = { year: date.getFullYear(), month: date.getMonth() };
+  renderCalendar();
+}
+function shiftCalendar(delta){
+  let { year, month } = APP.calendarCursor;
+  month += delta;
+  if(month < 0){ month = 11; year--; }
+  if(month > 11){ month = 0; year++; }
+  APP.calendarCursor = { year, month };
+  renderCalendar(true);
+}
+function renderCalendar(animated){
+  const { year, month } = APP.calendarCursor;
+  const label = document.getElementById("calendarMonthLabel");
+  label.textContent = `${MONTH_NAMES[month]} ${year}`;
+
+  const grid = document.getElementById("calendarGrid");
+  const doRender = () => {
+    grid.innerHTML = "";
+    const firstOfMonth = new Date(year, month, 1);
+    // Monday-first offset: JS getDay() 0=Sun..6=Sat -> convert to 0=Mon..6=Sun
+    const jsDay = firstOfMonth.getDay();
+    const leading = (jsDay + 6) % 7;
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    const holidayMap = buildHolidayMap([year-1, year, year+1]);
+
+    for(let i=0;i<leading;i++) grid.appendChild(el("div", { class: "cal-day empty" }));
+
+    for(let day=1; day<=daysInMonth; day++){
+      const d = new Date(year, month, day);
+      const classes = ["cal-day"];
+      let titleExtra = "";
+      if(isWeekend(d)) classes.push("weekend");
+      const holidayName = holidayMap.get(dateToYmd(d));
+      const vacPeriod = vacationPeriodFor(d, APP.model.periods) || (APP.model.afterSummer && d.getTime() >= APP.model.afterSummer.start.getTime() && d.getTime() < APP.model.afterSummer.end.getTime() ? APP.model.afterSummer : null);
+      if(vacPeriod){
+        classes.push("vacation");
+      } else if(holidayName){
+        classes.push("holiday");
+        titleExtra = holidayName;
+      }
+      if(sameDate(d, APP.today)) classes.push("today");
+      const cell = document.createElement("div");
+      cell.className = classes.join(" ");
+      if(vacPeriod) cell.style.setProperty("--vgrad", periodGradientCss(vacPeriod));
+      cell.textContent = String(day);
+      cell.tabIndex = 0;
+      cell.setAttribute("role","button");
+      cell.setAttribute("aria-label", formatLongDateFR(d) + (titleExtra ? " — " + titleExtra : ""));
+      cell.addEventListener("click", () => openDayModal(d));
+      cell.addEventListener("keydown", (ev) => { if(ev.key==="Enter"||ev.key===" "){ ev.preventDefault(); openDayModal(d); } });
+      grid.appendChild(cell);
+    }
+    if(animated && !APP.reducedMotion){
+      grid.classList.remove("switching");
+    }
+  };
+
+  if(animated && !APP.reducedMotion){
+    grid.classList.add("switching");
+    setTimeout(doRender, 180);
+  } else {
+    doRender();
+  }
+  renderCalendarLegend();
+}
+function renderCalendarLegend(){
+  const legend = document.getElementById("calendarLegend");
+  legend.innerHTML = "";
+  const items = [
+    { swatch: "background:rgba(148,133,196,.35)", text: "Week-end" },
+    { swatch: "background:#FEE2E2", text: "Jour férié" },
+    { swatch: "background:var(--brand-grad)", text: "Vacances" },
+    { swatch: "background:#fff;border:2px solid var(--brand-1)", text: "Aujourd'hui" }
+  ];
+  items.forEach(it => {
+    legend.appendChild(el("span", { class: "legend-dot" }, [
+      el("span", { class: "legend-swatch", style: it.swatch }),
+      it.text
+    ]));
+  });
+}
+
+/* =====================================================================
+   14. MODALE — DÉTAIL D'UN JOUR
+   ===================================================================== */
+function openDayModal(d){
+  const modal = document.getElementById("dayModal");
+  const content = document.getElementById("modalContent");
+  content.innerHTML = "";
+  content.appendChild(el("h3", { id: "modalTitleAnchor" }, [formatLongDateFR(d)]));
+
+  const holidayMap = buildHolidayMap([d.getFullYear()-1, d.getFullYear(), d.getFullYear()+1]);
+  const holidayName = holidayMap.get(dateToYmd(d));
+  const vacPeriod = vacationPeriodFor(d, APP.model.periods) || (APP.model.afterSummer && d.getTime() >= APP.model.afterSummer.start.getTime() && d.getTime() < APP.model.afterSummer.end.getTime() ? APP.model.afterSummer : null);
+
+  if(vacPeriod){
+    content.appendChild(el("span", { class: "modal-badge", style: `background:${periodGradientCss(vacPeriod)};color:#fff;` }, [`${vacPeriod.emoji} ${vacPeriod.full}`]));
+    const idx = diffDays(vacPeriod.start, d) + 1;
+    const total = diffDays(vacPeriod.start, vacPeriod.end);
+    content.appendChild(el("p", null, [el("span",{class:"modal-strong"},[`Jour ${idx} / ${total}`]), " des vacances."]));
+    content.appendChild(el("p", null, [`Reprise des cours le ${formatLongDateFR(vacPeriod.end)}.`]));
+  } else if(isWeekend(d)){
+    content.appendChild(el("span", { class: "modal-badge", style: "background:rgba(120,90,190,.14);color:var(--ink-soft);" }, ["🗓️ Week-end"]));
+    content.appendChild(el("p", null, ["Pas de classe ce jour-là."]));
+  } else if(holidayName){
+    content.appendChild(el("span", { class: "modal-badge", style: "background:#FEE2E2;color:#9F1239;" }, [`🎌 Jour férié — ${holidayName}`]));
+    content.appendChild(el("p", null, ["Pas de classe ce jour-là (hors période de vacances)."]));
+  } else {
+    content.appendChild(el("span", { class: "modal-badge", style: "background:#DCFCE7;color:#166534;" }, ["🎒 Jour d'école"]));
+    const idx = countSchoolDaysInclusive(APP.model.schoolYearStart, d, APP.model.periods, holidayMap);
+    if(idx > 0){
+      content.appendChild(el("p", null, [el("span",{class:"modal-strong"},[String(idx) + "e"]), ` jour d'école de l'année scolaire ${APP.model.schoolYear}.`]));
+    }
+  }
+  modal.hidden = false;
+  document.body.style.overflow = "hidden";
+}
+function closeModal(){
+  document.getElementById("dayModal").hidden = true;
+  document.body.style.overflow = "";
+}
+
+/* =====================================================================
+   15. RENDU — STATISTIQUES
+   ===================================================================== */
+function renderStats(){
+  const grid = document.getElementById("statsGrid");
+  grid.innerHTML = "";
+  const { model, today, holidayMap, state } = APP;
+  const stats = computeProgressionStats();
+  const totalFeries = countHolidaysInSchoolYear();
+  const totalSpan = model.schoolYearLastClassDay ? diffDays(model.schoolYearStart, model.schoolYearLastClassDay) : null;
+
+  const cards = [];
+  if(stats){
+    cards.push(statCard("🎒", stats.elapsedSchoolDays, "Jours d'école écoulés"));
+    cards.push(statCard("📘", stats.remainingSchoolDays, "Jours d'école restants"));
+    cards.push(statCard("🏖️", stats.vacElapsed, "Jours de vacances déjà passés"));
+    cards.push(statCard("🧳", stats.vacRemaining, "Jours de vacances restants"));
+    cards.push(statCard("📦", stats.vacTotal, "Total jours de vacances (année)"));
+    cards.push(statCard("📈", stats.pct + "%", "Année scolaire écoulée"));
+  }
+  if(state.next){
+    cards.push(statCard(state.next.emoji, state.next.name, "Prochaine période de vacances"));
+  }
+  cards.push(statCard("🎌", totalFeries, "Jours fériés cette année scolaire"));
+  if(totalSpan !== null) cards.push(statCard("🗓️", totalSpan, "Jours calendaires (rentrée → fin des cours)"));
+
+  cards.forEach(c => grid.appendChild(c));
+
+  // Simple visual split bar: school days vs vacation days vs weekends+holidays, across the full year span
+  if(stats && totalSpan){
+    const weekendsAndHolidays = Math.max(0, totalSpan - stats.totalSchoolDays - stats.vacTotal);
+    const wrap = el("div", { class: "card stat-card", style: "grid-column:1/-1;" });
+    wrap.appendChild(el("p", { class: "stat-label", style: "margin-bottom:2px;" }, ["Répartition de l'année scolaire (jours calendaires)"]));
+    const bar = el("div", { class: "split-bar" }, [
+      el("div", { style: `width:${(stats.totalSchoolDays/totalSpan*100).toFixed(2)}%;background:var(--brand-grad);` }),
+      el("div", { style: `width:${(stats.vacTotal/totalSpan*100).toFixed(2)}%;background:linear-gradient(135deg,#FB923C,#F472B6);` }),
+      el("div", { style: `width:${(weekendsAndHolidays/totalSpan*100).toFixed(2)}%;background:rgba(120,90,190,.25);` })
+    ]);
+    wrap.appendChild(bar);
+    wrap.appendChild(el("div", { class: "split-legend" }, [
+      legendItem("var(--brand-grad)", `École (${stats.totalSchoolDays}j)`),
+      legendItem("linear-gradient(135deg,#FB923C,#F472B6)", `Vacances (${stats.vacTotal}j)`),
+      legendItem("rgba(120,90,190,.25)", `Week-ends & fériés (${weekendsAndHolidays}j)`)
+    ]));
+    grid.appendChild(wrap);
+  }
+
+  // Table-like list of each period's duration
+  const list = el("div", { class: "card stat-card", style: "grid-column:1/-1;" });
+  list.appendChild(el("p", { class: "stat-label", style: "margin-bottom:10px;" }, ["Durée de chaque période de vacances"]));
+  model.periods.forEach(p => {
+    const lenCal = diffDays(p.start, p.end);
+    const workingDays = countWorkingDaysInPeriod(p, holidayMap);
+    list.appendChild(el("div", { class: "day-info-row" }, [
+      el("span", null, [`${p.emoji} ${p.name}`]),
+      el("span", null, [`${lenCal} j. calendaires · ${workingDays} j. ouvrés`])
+    ]));
+  });
+  grid.appendChild(list);
+}
+function statCard(icon, value, label){
+  return el("div", { class: "card hoverable stat-card" }, [
+    el("span", { class: "stat-icon", "aria-hidden":"true" }, [icon]),
+    el("div", { class: "stat-value" }, [String(value)]),
+    el("div", { class: "stat-label" }, [label])
+  ]);
+}
+function legendItem(color, text){
+  return el("span", { class: "legend-dot" }, [ el("span", { class: "legend-swatch", style: `background:${color}` }), text ]);
+}
+function countHolidaysInSchoolYear(){
+  const { model, holidayMap } = APP;
+  if(!model.schoolYearLastClassDay) return 0;
+  let c = 0, d = new Date(model.schoolYearStart);
+  const end = model.schoolYearLastClassDay;
+  while(d.getTime() <= end.getTime()){
+    if(!isWeekend(d) && holidayMap.has(dateToYmd(d))) c++;
+    d = addDays(d, 1);
+  }
+  return c;
+}
+
+/* =====================================================================
+   16. NAVIGATION (une seule page, défilement fluide + état actif)
+   ===================================================================== */
+function scrollToSection(id){
+  const node = document.getElementById(id);
+  if(node) node.scrollIntoView({ behavior: APP.reducedMotion ? "auto" : "smooth", block: "start" });
+}
+function setupNavigation(){
+  const allNavButtons = document.querySelectorAll("[data-target]");
+  allNavButtons.forEach(btn => {
+    btn.addEventListener("click", () => scrollToSection(btn.getAttribute("data-target")));
+  });
+  const sections = ["accueil","calendrier","vacances","statistiques"].map(id => document.getElementById(id)).filter(Boolean);
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        allNavButtons.forEach(btn => btn.classList.toggle("active", btn.getAttribute("data-target") === id));
+      }
+    });
+  }, { rootMargin: "-40% 0px -55% 0px", threshold: 0 });
+  sections.forEach(s => observer.observe(s));
+}
+
+/* =====================================================================
+   17. ANIMATIONS D'ENTRÉE (staggered reveal on load)
+   ===================================================================== */
+function playEntranceAnimations(){
+  const items = document.querySelectorAll(".reveal");
+  items.forEach((node, i) => {
+    setTimeout(() => node.classList.add("in"), APP.reducedMotion ? 0 : i * 90);
+  });
+}
+
+/* =====================================================================
+   18. CONFETTIS (léger, vanilla canvas, ~3s, respecte reduced-motion)
+   ===================================================================== */
+function launchConfetti(){
+  if(APP.reducedMotion) return;
+  const canvas = document.getElementById("confettiCanvas");
+  const ctx = canvas.getContext("2d");
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  function resize(){
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    canvas.style.width = window.innerWidth + "px";
+    canvas.style.height = window.innerHeight + "px";
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  resize();
+  const colors = ["#6366F1","#A855F7","#EC4899","#FBBF24","#34D399","#38BDF8"];
+  const pieces = Array.from({length:90}, () => ({
+    x: Math.random()*window.innerWidth,
+    y: -20 - Math.random()*window.innerHeight*0.4,
+    w: 6+Math.random()*6,
+    h: 8+Math.random()*8,
+    color: colors[Math.floor(Math.random()*colors.length)],
+    speedY: 2+Math.random()*3,
+    speedX: (Math.random()-0.5)*2,
+    rot: Math.random()*360,
+    rotSpeed: (Math.random()-0.5)*10
+  }));
+  let frame = 0;
+  const maxFrames = 240; // ~4s at 60fps
+  function loop(){
+    frame++;
+    ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
+    pieces.forEach(p => {
+      p.y += p.speedY; p.x += p.speedX; p.rot += p.rotSpeed;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot * Math.PI/180);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+      ctx.restore();
+    });
+    if(frame < maxFrames){
+      requestAnimationFrame(loop);
+    } else {
+      ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
+    }
+  }
+  requestAnimationFrame(loop);
+  window.addEventListener("resize", resize, { once:false });
+}
+
+/* =====================================================================
+   19. GESTION DES ERREURS / SOURCE DE DONNÉES
+   ===================================================================== */
+function renderDataSourceNotice(source, fetchedAt){
+  const badgeRow = document.querySelector(".header-meta");
+  const existing = document.getElementById("sourceBadge");
+  if(existing) existing.remove();
+  if(source === "live") return;
+  const badge = document.createElement("span");
+  badge.id = "sourceBadge";
+  badge.className = "badge offline";
+  if(source === "cache"){
+    const d = fetchedAt ? new Date(fetchedAt) : null;
+    badge.textContent = d ? `🔄 Hors-ligne (sync. ${d.toLocaleDateString("fr-FR")})` : "🔄 Hors-ligne";
+  } else if(source === "fallback"){
+    badge.textContent = "📦 Données de secours";
+  }
+  badgeRow.appendChild(badge);
+}
+function showErrorBanner(){
+  document.getElementById("errorBanner").hidden = false;
+}
+function hideErrorBanner(){
+  document.getElementById("errorBanner").hidden = true;
+}
+
+/* =====================================================================
+   20. FOOTER
+   ===================================================================== */
+function renderFooter(source, fetchedAt){
+  const note = document.getElementById("footerNote");
+  const base = "Dates des vacances scolaires : Ministère de l'Éducation nationale, académie de Nantes, Zone B (open data, data.education.gouv.fr). Jours fériés calculés selon le calendrier légal français. Aucune donnée personnelle n'est collectée par ce site.";
+  let extra = "";
+  if(source === "cache" && fetchedAt) extra = ` Dernière synchronisation réussie : ${new Date(fetchedAt).toLocaleString("fr-FR")}.`;
+  if(source === "fallback") extra = " Jeu de données de secours utilisé en l'absence de connexion (année scolaire 2026-2027).";
+  note.textContent = base + extra;
+}
+
+/* =====================================================================
+   21. INITIALISATION GÉNÉRALE
+   ===================================================================== */
+async function init(){
+  document.getElementById("prevMonth").addEventListener("click", () => shiftCalendar(-1));
+  document.getElementById("nextMonth").addEventListener("click", () => shiftCalendar(1));
+  document.querySelectorAll("[data-close]").forEach(n => n.addEventListener("click", closeModal));
+  document.addEventListener("keydown", (ev) => { if(ev.key === "Escape") closeModal(); });
+  document.getElementById("retryBtn").addEventListener("click", boot);
+  setupNavigation();
+  await boot();
+}
+
+async function boot(){
+  hideErrorBanner();
+  const loading = document.getElementById("loadingScreen");
+  const main = document.getElementById("mainContent");
+  loading.classList.remove("hide");
+  main.hidden = true;
+
+  try {
+    const result = await loadVacationData();
+    APP.today = todayLocal();
+
+    if(!result){
+      loading.classList.add("hide");
+      showErrorBanner();
+      return;
+    }
+
+    APP.dataSource = result.source;
+    APP.fetchedAt = result.fetchedAt;
+    APP.model = buildPeriodModel(result.bySchoolYear, APP.today);
+
+    if(APP.model.periods.length === 0){
+      loading.classList.add("hide");
+      showErrorBanner();
+      return;
+    }
+
+    const yearsNeeded = [APP.today.getFullYear()-1, APP.today.getFullYear(), APP.today.getFullYear()+1];
+    APP.holidayMap = buildHolidayMap(yearsNeeded);
+    APP.state = computeCurrentState(APP.model, APP.today, APP.holidayMap);
+    APP.calendarCursor = { year: APP.today.getFullYear(), month: APP.today.getMonth() };
+
+    document.getElementById("schoolYearBadge").textContent = APP.model.schoolYear;
+    renderDataSourceNotice(APP.dataSource, APP.fetchedAt);
+    renderHero();
+    renderDayInfo();
+    renderProgression();
+    renderVacationCards();
+    renderCalendar();
+    renderStats();
+    renderFooter(APP.dataSource, APP.fetchedAt);
+  } catch(renderErr){
+    // Any unexpected failure (rendering bug, malformed data that slipped past
+    // validation, etc.) must never leave the user stuck on the loading screen.
+    loading.classList.add("hide");
+    showErrorBanner();
+    return;
+  }
+
+  main.hidden = false;
+  loading.classList.add("hide");
+  playEntranceAnimations();
+
+  if(APP.state.onVacation){
+    let alreadyCelebrated = false;
+    try { alreadyCelebrated = !!sessionStorage.getItem("cv_confetti_" + APP.model.schoolYear + "_" + APP.state.current.key); } catch(e){}
+    if(!alreadyCelebrated){
+      launchConfetti();
+      try { sessionStorage.setItem("cv_confetti_" + APP.model.schoolYear + "_" + APP.state.current.key, "1"); } catch(e){}
+    }
+  }
+}
+
+if(document.readyState === "loading"){
+  document.addEventListener("DOMContentLoaded", init);
+} else {
+  init();
+}
+
+})();
+</script>
+</body>
+</html>
